@@ -7,3 +7,11 @@ settings:
 importers:
 
   .: {}
+
+  a:
+    dependencies:
+      '@test/b':
+        specifier: workspace:^
+        version: link:../b
+
+  b: {}
