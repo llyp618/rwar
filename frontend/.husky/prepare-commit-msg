@@ -23,32 +23,14 @@ BRANCH=$(git rev-parse --abbrev-ref HEAD)
 # 获取版本号
 VERSION=$(date '+%Y%m%d')
 
-# 交互式选择类型
-echo "请选择提交类型："
-select TYPE in "Bug" "INTERNAL" "NBF"; do
-  case $TYPE in
-    "Bug" | "INTERNAL" | "NBF")
-      break
-      ;;
-    *)
-      echo "无效的选择，请重试。"
-      ;;
-  esac
-done
+# 定义模板内容
+TEMPLATE="[Bug] 
+[INTERNAL]
+[NBF]
 
-# 交互式填写 Cause
-echo "请输入 Cause（按 Enter 跳过）："
-read CAUSE
-
-# 交互式填写 Solution
-echo "请输入 Solution（按 Enter 跳过）："
-read SOLUTION
-
-# 生成提交信息模板
-TEMPLATE="[$TYPE] 
-[Cause]: ${CAUSE:-None}
-[Solution]: ${SOLUTION:-None}
-[Fixed Version]: $VERSION
-[Branch]: $BRANCH"
+Cause: None
+Solution: None
+Fixed Version: $VERSION
+Branch: $BRANCH"
 
 echo "$TEMPLATE" > "$COMMIT_MSG_FILE"
