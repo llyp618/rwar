@@ -1,4 +1,4 @@
 #!/bin/sh
-git push `git remote` HEAD\:refs/for/`git symbolic-ref --short -q HEAD`
+# git push `git remote` HEAD\:refs/for/`git symbolic-ref --short -q HEAD`
 
 exit 1
