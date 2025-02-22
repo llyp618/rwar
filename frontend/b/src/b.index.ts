@@ -1,5 +1,4 @@
 import { plus } from '@b/plus';
 plus(1, 1);
-console.log(a);
-
+const a = 1;
 export const f = 12333;
