@@ -4,10 +4,11 @@ COMMIT_MSG_FILE=$1
 
 COMMIT_SOURCE=$2
 
+echo "$COMMIT_SOURCE"
+
 # 如果用户使用 -m 参数，给出警告并退出
 if [ "$COMMIT_SOURCE" = "message" ]; then
-  echo "❌ Error: Direct commit messages are not allowed."
-  echo "Please use the default editor to provide a commit message with the template."
+  echo "Error: donn't use -m parameter"
   exit 1
 fi
 
