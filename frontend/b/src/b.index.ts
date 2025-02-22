@@ -1,5 +1,4 @@
-import { plus } from "@b/plus";
-plus(1, '2');
-
+import { plus } from '@b/plus';
+plus(1, 1);
 
 export const f = 1;

@@ -4,9 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prepare": "cd .. && husky frontend/.husky",
+    "lint": "eslint .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^9.21.0",
+    "eslint-config-tpr618": "^3.0.1",
+    "husky": "^9.1.7",
+    "prettier": "^3.5.2"
+  }
 }
