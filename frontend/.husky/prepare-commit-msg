@@ -6,6 +6,11 @@ COMMIT_SOURCE=$2
 
 echo "$COMMIT_SOURCE"
 
+# 如果用户使用 --amend 参数，直接跳过模板插入
+if [ "$COMMIT_SOURCE" = "commit" ]; then
+  exit 0
+fi
+
 # 如果用户使用 -m 参数，给出警告并退出
 if [ "$COMMIT_SOURCE" = "message" ]; then
   echo "Error: donn't use -m parameter"
