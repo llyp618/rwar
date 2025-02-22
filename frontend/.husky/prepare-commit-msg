@@ -33,4 +33,9 @@ Solution: None
 Fixed Version: $VERSION
 Branch: $BRANCH"
 
+ORIGINAL_MSG=$(cat "$COMMIT_MSG_FILE")
+
+# 将模板追加到原始提交信息前面
 echo "$TEMPLATE" > "$COMMIT_MSG_FILE"
+echo "" >> "$COMMIT_MSG_FILE"  # 添加一个空行
+echo "$ORIGINAL_MSG" >> "$COMMIT_MSG_FILE"
