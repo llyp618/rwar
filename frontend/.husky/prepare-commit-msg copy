@@ -1,0 +1,36 @@
+#!/bin/sh
+# 获取提交信息文件路径
+COMMIT_MSG_FILE=$1
+
+COMMIT_SOURCE=$2
+
+echo "$COMMIT_SOURCE"
+
+# 如果用户使用 --amend 参数，直接跳过模板插入
+if [ "$COMMIT_SOURCE" = "commit" ]; then
+  exit 0
+fi
+
+# 如果用户使用 -m 参数，给出警告并退出
+if [ "$COMMIT_SOURCE" = "message" ]; then
+  echo "Error: donn't use -m parameter"
+  exit 1
+fi
+
+# 获取当前分支名
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
+# 获取版本号
+VERSION=$(date '+%Y%m%d')
+
+# 定义模板内容
+TEMPLATE="[Bug] 
+[INTERNAL]
+[NBF]
+
+Cause: None
+Solution: None
+Fixed Version: $VERSION
+Branch: $BRANCH"
+
+echo "$TEMPLATE" > "$COMMIT_MSG_FILE"
